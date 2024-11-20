@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Задание 3</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <h3>Сделайте страницу с "убегающей" картинкой. Т.е. на странице должна быть одна картинка. При попытке наехать на нее мышкой она должна переместиться в другое место экрана. 
+            Это можно сделать, если в другом месте экрана расположить пустую, прозрачную картинку и затем менять их местами в ответ на событие mouseover. 
+            Можно сделать несколько пустых картинок, тогда наша основная картинка может "убегать" в случайное место.</h3>
+        <img id="mainImage" src="img/1.png" alt="Catch me if you can!">
+    </div>
+    <script>
+        const img = document.getElementById("mainImage");
+        img.addEventListener("mouseover", () => {
+            const screenWidth = window.innerWidth;
+            const screenHeight = window.innerHeight;
+            const randomX = Math.random() * (screenWidth - img.offsetWidth);
+            const randomY = Math.random() * (screenHeight - img.offsetHeight);
+            img.style.position = "absolute"; 
+            img.style.left = `${randomX}px`;
+            img.style.top = `${randomY}px`;
+        });
+    </script>
+</body>
+</html>

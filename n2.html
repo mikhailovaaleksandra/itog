@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Задание 2</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div>
+    <div class="container">
+        <h3>Создать HTML-страницу, которая при загрузке выдает список всех «Пятница 13-е» текущего года. </h3>
+        <ul id="friday13List"></ul>
+    </div>
+    <script>
+        function MonthName(monthIndex) {
+            let months = ["Январь", "Февраль", "Март", "Апрель", "Май", "Июнь","Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"];
+            return months[monthIndex];
+        }
+        function findFridays13() {
+            let currentYear = new Date().getFullYear(); 
+            let friday13List = document.getElementById("friday13List");
+
+            for (let month = 0; month < 12; month++) {
+                let date = new Date(currentYear, month, 13); 
+                if (date.getDay() === 5) {
+                    let monthName = MonthName(month);
+                    let listItem = document.createElement("li");
+                    listItem.textContent = `${monthName} 13, ${currentYear}`;
+                    friday13List.appendChild(listItem);
+                }
+            }
+        }
+
+        findFridays13();
+    </script>
+</body>
+</html>

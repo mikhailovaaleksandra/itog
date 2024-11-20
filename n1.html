@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Задание 1</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div>
+    <div class="container">
+        <h3>Написать функцию, которая строку, переданную в качестве аргумента, преобразует так, что все слова следуют в обратном порядке: сначала последнее слово, затем - предпоследнее, и т.д. </h3>
+        <input type="text" id="inputString">
+        <input type="button" value="Перевернуть слова" onclick="reverseWords()">
+        <p id="output"></p>
+    </div>
+    <script>
+        function reverseWords() {
+            let input = document.getElementById("inputString").value;
+            let reversed = input.split(' ').reverse().join(' ');
+            document.getElementById("output").innerText = "Результат: " + reversed;
+        }
+    </script>
+</body>
+</html>
